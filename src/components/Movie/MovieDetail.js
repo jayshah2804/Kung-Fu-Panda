@@ -8,26 +8,21 @@ export const MovieDetail = () => {
 
   useEffect(() => {
     async function request() {
-      const response = await fetch(
-        "https://react-hhtp28-default-rtdb.firebaseio.com/movies/" +
-          `${movieId}` +
-          ".json"
-      );
+      const response = await fetch("http://192.168.0.102:3000");
       const data = await response.json();
-      setData(data);
+      setData(data[movieId - 1]);
     }
     request();
   }, [movieId]);
 
   return (
     <div className={classes.movieDetail}>
-      {console.log(document.getElementsByTagName("a").length)}
       {data && (
         <React.Fragment>
           <img
             src={data.image}
             alt="no mmovie"
-            style={{ height: "65%", width: "95%", borderRadius: "15px"}}
+            style={{ height: "65%", width: "95%", borderRadius: "15px" }}
           />
           <footer>
             <h3
@@ -70,8 +65,6 @@ export const MovieDetail = () => {
           </footer>
         </React.Fragment>
       )}
-      <div></div>
     </div>
-    
   );
 };

@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import classes from "./MovieList.module.css";
 
 export const MovieList = () => {
   const movieId = useSelector((state) => state.selectedMovieId);
   const dispatch = useDispatch();
+  const [data, setData] = useState();
 
   const movieSelectHandler = (event) => {
     if (event.target.id) {
@@ -15,16 +16,18 @@ export const MovieList = () => {
     }
   };
 
+  useEffect(() => {
+    async function request() {
+      const response = await fetch("http://192.168.0.102:3000");
+      const data = await response.json();
+      setData(data);
+    }
+    request();
+  }, []);
+
   return (
     <ul className={classes.movieList} onClick={movieSelectHandler}>
-      <li id="m1" className={"m1" === movieId ? "selectedLi" : ""}>Kung Fu Panda </li>
-      <li id="m2" className={"m2" === movieId ? "selectedLi" : ""}>Kung Fu Panda 2</li>
-      <li id="m3" className={"m3" === movieId ? "selectedLi" : ""}>Kung Fu Panda 3</li>
-      <li id="m4" className={"m4" === movieId ? "selectedLi" : ""}>Harry Potter And The Deathly Hallows II</li>
-      <li id="m5" className={"m5" === movieId ? "selectedLi" : ""}>Harry Potter and the Philosopher's Stone</li>
-      <li id="m6" className={"m6" === movieId ? "selectedLi" : ""}>Harry Potter and the Chamber of Secrets</li>
-      <li id="m7" className={"m7" === movieId ? "selectedLi" : ""}>Harry Potter and the Prisoner of Azkaban</li>
-      <li id="m8" className={"m8" === movieId ? "selectedLi" : ""}>Harry Potter and the Goblet of Fire</li>
+      {data && data.map((movie) => <li id={movie.key} key={movie.key} className={movie.key === movieId ? "selectedLi" : ""} >{movie.name}</li>)}
     </ul>
   );
 };

@@ -1,6 +1,6 @@
 import {createStore} from 'redux';
 
-const mreducer = (state= {selectedMovieId: "m1"}, action) => {
+const mreducer = (state= {selectedMovieId: "1"}, action) => {
     if(action.type === "movieList"){
         return {
             selectedMovieId: action.movieId,
