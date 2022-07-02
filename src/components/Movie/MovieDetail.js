@@ -5,9 +5,7 @@ import { useSelector } from "react-redux";
 export const MovieDetail = () => {
   const movieId = useSelector((state) => state.selectedMovieId);
   const [data, setData] = useState();
-  if (data) {
-    console.log("not", data);
-  }
+
   useEffect(() => {
     async function request() {
       const response = await fetch(
@@ -23,6 +21,7 @@ export const MovieDetail = () => {
 
   return (
     <div className={classes.movieDetail}>
+      {console.log(document.getElementsByTagName("a").length)}
       {data && (
         <React.Fragment>
           <img
