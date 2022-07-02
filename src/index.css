@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  background: #fff;
+}
+
+body {
+  margin: 0;
+}
+
+span {
+  font-weight: bold ;
+}
+
+.selectedLi {
+  background-color: rgb(200, 196, 196);
+  font-weight: bold;
+}

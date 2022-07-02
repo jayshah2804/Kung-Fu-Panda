@@ -1,0 +1,14 @@
+.movieDetail {
+    flex: 50%;
+    margin: 3%;
+    overflow: auto;
+}
+
+.description {
+    font-size: small;
+    margin: 10%;
+}
+
+div.description {
+    line-height: 80%;
+}

@@ -1,0 +1,15 @@
+.movieList {
+    margin-top: -0.5%; 
+    flex: 50%;
+    background-color: rgb(248, 245, 245);
+    list-style-type: none;
+    margin-bottom: 0;
+    overflow: auto;
+    cursor: pointer;
+}
+
+.movieList > li {
+    margin: 3%;
+    padding: 1%;
+    margin-left: -5%;
+}
