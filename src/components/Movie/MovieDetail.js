@@ -27,7 +27,7 @@ export const MovieDetail = () => {
           <img
             src={data.image}
             alt="no mmovie"
-            style={{ height: "65%", width: "95%", borderRadius: "15px" }}
+            style={{ height: "65%", width: "95%", borderRadius: "15px"}}
           />
           <footer>
             <h3
@@ -70,6 +70,8 @@ export const MovieDetail = () => {
           </footer>
         </React.Fragment>
       )}
+      <div></div>
     </div>
+    
   );
 };
