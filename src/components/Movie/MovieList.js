@@ -18,7 +18,7 @@ export const MovieList = () => {
 
   useEffect(() => {
     async function request() {
-      const response = await fetch("http://192.168.0.102:3000");
+      const response = await fetch("https://SlightBrilliantDribbleware.jayshah280420.repl.co");
       const data = await response.json();
       setData(data);
     }
